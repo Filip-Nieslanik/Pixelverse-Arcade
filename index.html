@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Pixelverse Arcade – Retro neon arcade hry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- fonty -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- knihovny -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark arcade-navbar fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#top">
+            <div class="brand-pixel-box"><span class="brand-pixel-dot"></span></div>
+            <span class="brand-text">PIXELVERSE ARCADE</span>
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="mainNav" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="#hero"><i class="bi bi-house-door me-1"></i>Úvod</a></li>
+                <li class="nav-item"><a class="nav-link" href="#games"><i class="bi bi-controller me-1"></i>Hry</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tabs"><i class="bi bi-grid-3x3-gap-fill me-1"></i>Kategorie</a></li>
+                <li class="nav-item"><a class="nav-link" href="#leaderboard"><i class="bi bi-trophy me-1"></i>Žebříček</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-chat-dots me-1"></i>Turnaje</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about"><i class="bi bi-info-circle me-1"></i>O webu</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="hero" class="hero-section">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+
+            <div class="col-lg-6">
+                <p class="hero-kicker mb-2">INSERT COIN TO START!</p>
+
+                <h1 class="hero-title mb-3">
+                    RETRO ARCADE HRY<br>
+                    v <span class="hero-highlight">neon pixel</span> stylu
+                </h1>
+
+                <p class="hero-subtitle mb-4">
+                    Pixelverse Arcade je malý hub pro Tetris, Snake, Flappy Bird a další klasiky.
+                    Najdeš tu popisy, obrázky, žebříčky a přihlášku na turnaje.
+                </p>
+
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <a href="#games" class="btn btn-arcade-primary btn-lg">
+                        <i class="bi bi-play-fill me-1"></i>Mrknout na hry
+                    </a>
+
+                    <button type="button" class="btn btn-arcade-outline btn-lg" data-bs-toggle="modal" data-bs-target="#aboutModal">
+                        <i class="bi bi-question-diamond me-1"></i>Co je tohle za web?
+                    </button>
+                </div>
+
+                <div class="row g-2 hero-mini-panels">
+                    <div class="col-4">
+                        <div class="mini-panel">
+                            <span class="mini-label">Nestárnoucí</span>
+                            <span class="mini-value">Tetris</span>
+                            <span class="mini-note">bloky všude</span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="mini-panel">
+                            <span class="mini-label">Klasiky</span>
+                            <span class="mini-value">Snake</span>
+                            <span class="mini-note">bacha na ocas!</span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="mini-panel">
+                            <span class="mini-label">Arkády</span>
+                            <span class="mini-value">Flappy</span>
+                            <span class="mini-note">ještě jeden pokus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAROUSEL -->
+            <div class="col-lg-6">
+                <div class="pixel-panel shadow-lg">
+                    <div id="arcadeCarousel" class="carousel slide" data-bs-ride="carousel">
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="carousel-art art-tetris"></div>
+                                <div class="carousel-caption text-start">
+                                    <h5>Tetris</h5>
+                                    <p>Bloky padají, ty přemýšlíš.</p>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="carousel-art art-snake"></div>
+                                <div class="carousel-caption text-start">
+                                    <h5>Snake</h5>
+                                    <p>Kultovní klasika na reakce.</p>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="carousel-art art-flappy"></div>
+                                <div class="carousel-caption text-start">
+                                    <h5>Flappy Bird</h5>
+                                    <p>Jedno tlačítko, hodně nervů.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#arcadeCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+
+                        <button class="carousel-control-next" type="button" data-bs-target="#arcadeCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-dark-soft">
+    <div class="container">
+
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb pixel-breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="#top">Domů</a></li>
+                <li class="breadcrumb-item active">O Pixelverse Arcade</li>
+            </ol>
+        </nav>
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <h2 class="section-heading mb-3">O WEBU:</h2>
+
+                <p>
+                    Jde o jednoduchý one-page web, kde můžeš najít pohromadě známé retro hry,
+                    obrázky, popisy a žebříčky.
+                </p>
+
+                <p class="mb-0">
+                    <br><b> POZOR: </b></br> Jde o návrh webu v rámci semestrálního projektu, formulář postrádá API a backend / tabulky nemají návaznost na databázi.
+                </p>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="pixel-panel small-panel">
+                    <h3 class="small-heading mb-2"><i class="bi bi-joystick me-1"></i>Co tady můžeš najít?</h3>
+                    <ul class="pixel-list mb-0">
+                        <li>Přehled her</li>
+                        <li>Mini žebříčky</li>
+                        <li>Kategorie podle druhu hry</li>
+                        <li>Přihláška do turnaje</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- GAME CARDS -->
+<section id="games" class="section-mid">
+    <div class="container">
+
+        <h2 class="section-heading mb-3">Herni vyber</h2>
+        <p class="mb-4">Tri hlavni klasiky.</p>
+
+        <div class="row g-4">
+
+            <!-- TETRIS -->
+            <div class="col-md-4">
+                <article class="pixel-game-card h-100">
+                    <header class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="pixel-tag">Strategie</span>
+                        <span class="game-name-small">Tetris</span>
+                    </header>
+
+                    <div class="game-media mb-3">
+                        <div class="game-art art-tetris"></div>
+                    </div>
+
+                    <h3 class="game-title">Tetris</h3>
+
+                    <p class="game-text">
+                        Padajici bloky skladas do radku bez mezer.
+                    </p>
+
+                    <button class="btn btn-arcade-secondary btn-sm w-100 mt-auto"
+                            data-bs-toggle="modal" data-bs-target="#tetrisModal">
+                        <i class="bi bi-info-square me-1"></i>Detail hry & zebricky
+                    </button>
+                </article>
+            </div>
+
+            <!-- SNAKE -->
+            <div class="col-md-4">
+                <article class="pixel-game-card h-100">
+                    <header class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="pixel-tag">Reflexy</span>
+                        <span class="game-name-small">Snake</span>
+                    </header>
+
+                    <div class="game-media mb-3">
+                        <div class="game-art art-snake"></div>
+                    </div>
+
+                    <h3 class="game-title">Snake</h3>
+
+                    <p class="game-text">
+                        Jez jidlo, nejez sebe, nelez do zdi.
+                    </p>
+
+                    <button class="btn btn-arcade-secondary btn-sm w-100 mt-auto"
+                            data-bs-toggle="modal" data-bs-target="#snakeModal">
+                        <i class="bi bi-info-square me-1"></i>Detail hry & zebricky
+                    </button>
+                </article>
+            </div>
+
+            <!-- FLAPPY -->
+            <div class="col-md-4">
+                <article class="pixel-game-card h-100">
+                    <header class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="pixel-tag">Preciznost</span>
+                        <span class="game-name-small">Flappy Bird</span>
+                    </header>
+
+                    <div class="game-media mb-3">
+                        <div class="game-art art-flappy"></div>
+                    </div>
+
+                    <h3 class="game-title">Flappy Bird</h3>
+
+                    <p class="game-text">
+                        Jedno tlacitko. Spousta restartu.
+                    </p>
+
+                    <button class="btn btn-arcade-secondary btn-sm w-100 mt-auto"
+                            data-bs-toggle="modal" data-bs-target="#flappyModal">
+                        <i class="bi bi-info-square me-1"></i>Detail hry & zebricky
+                    </button>
+                </article>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- TABS -->
+<section id="tabs" class="section-tabs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+            <div>
+                <h2 class="section-heading mb-1">Kategorie her</h2>
+                <p class="mb-0 small text-muted">Jednoduche deleni podle typu her.</p>
+            </div>
+        </div>
+
+        <!-- level 1 tabs (opraveno – žádný button v buttonu) -->
+        <ul class="nav nav-tabs arcade-tabs" role="tablist">
+            <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-classic">Klasiky</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-reflex">Reflex</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-puzzle">Puzzle</button>
+            </li>
+        </ul>
+
+        <!-- level 2 content -->
+        <div class="tab-content arcade-tab-content">
+
+            <div class="tab-pane fade show active" id="tab-classic">
+                <h3 class="tab-heading">8bit klasiky</h3>
+                <ul class="pixel-list">
+                    <li>Tetris</li>
+                    <li>Pac-Man</li>
+                    <li>Space Invaders</li>
+                    <li>Arkanoid</li>
+                </ul>
+            </div>
+
+            <div class="tab-pane fade" id="tab-reflex">
+                <h3 class="tab-heading">Reflex hry</h3>
+                <ul class="pixel-list">
+                    <li>Snake</li>
+                    <li>Flappy Bird</li>
+                    <li>Runner hry</li>
+                </ul>
+            </div>
+
+            <div class="tab-pane fade" id="tab-puzzle">
+                <h3 class="tab-heading">Puzzle hry</h3>
+                <ul class="pixel-list">
+                    <li>2048</li>
+                    <li>Minesweeper</li>
+                    <li>Match-3</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- LEADERBOARD -->
+<section id="leaderboard" class="section-dark-soft">
+    <div class="container">
+
+        <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center mb-3">
+            <div>
+                <h2 class="section-heading mb-1">Zebricky</h2>
+                <p class="mb-0 small text-muted">Ukazkova data.</p>
+            </div>
+
+            <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-arcade-outline" id="btnScrollTop">
+                    <i class="bi bi-arrow-up-circle me-1"></i>Nahoru
+                </button>
+                <button class="btn btn-sm btn-arcade-primary" data-bs-toggle="modal" data-bs-target="#wireframeModal">
+                    <i class="bi bi-phone me-1"></i>Mobilni verze
+                </button>
+            </div>
+        </div>
+
+        <!-- leaderboard tabs -->
+        <ul class="nav nav-tabs arcade-tabs mb-3">
+            <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#score-all">Vsechny hry</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#score-tetris">Tetris</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#score-snake">Snake</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#score-flappy">Flappy</button>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+
+            <!-- ALL -->
+            <div class="tab-pane fade show active" id="score-all">
+                <div class="table-responsive pixel-panel p-3 bg-dark-plain">
+                    <table id="scoreAll" class="table table-striped table-hover align-middle mb-0" style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Hra</th>
+                            <th>Hrac</th>
+                            <th>Skore</th>
+                            <th>Obtiznost</th>
+                            <th>Datum</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TETRIS -->
+            <div class="tab-pane fade" id="score-tetris">
+                <div class="table-responsive pixel-panel p-3 bg-dark-plain">
+                    <table id="scoreTetris" class="table table-striped table-hover align-middle mb-0" style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Hrac</th>
+                            <th>Skore</th>
+                            <th>Uroven</th>
+                            <th>Datum</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SNAKE -->
+            <div class="tab-pane fade" id="score-snake">
+                <div class="table-responsive pixel-panel p-3 bg-dark-plain">
+                    <table id="scoreSnake" class="table table-striped table-hover align-middle mb-0" style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Hrac</th>
+                            <th>Delka</th>
+                            <th>Skore</th>
+                            <th>Datum</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- FLAPPY -->
+            <div class="tab-pane fade" id="score-flappy">
+                <div class="table-responsive pixel-panel p-3 bg-dark-plain">
+                    <table id="scoreFlappy" class="table table-striped table-hover align-middle mb-0" style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Hrac</th>
+                            <th>Prulety</th>
+                            <th>Serie</th>
+                            <th>Datum</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FORM -->
+<section id="contact" class="section-mid">
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-5">
+                <h2 class="section-heading mb-3">Prihlaska do turnaje</h2>
+
+                <p>
+                    Jednoduchy formular pro ukazku.
+                </p>
+            </div>
+
+            <div class="col-lg-7">
+                <form class="pixel-form">
+
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <label for="inputName" class="form-label">Jmeno</label>
+                            <input id="inputName" type="text" class="form-control" placeholder="Tvoje jmeno">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputNick" class="form-label">Nick</label>
+                            <input id="inputNick" type="text" class="form-control" placeholder="Prezdivka">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputEmail" class="form-label">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-at"></i></span>
+                                <input id="inputEmail" type="email" class="form-control" placeholder="name@example.com">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputLink" class="form-label">Odkaz (volitelne)</label>
+                            <input id="inputLink" type="url" class="form-control" placeholder="https://...">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputType" class="form-label">Co chces resit</label>
+                            <select id="inputType" class="form-select">
+                                <option>Prihlaska</option>
+                                <option>Registrace hrace</option>
+                                <option>Dotaz</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputFavGame" class="form-label">Oblibena hra</label>
+                            <select id="inputFavGame" class="form-select">
+                                <option>Tetris</option>
+                                <option>Snake</option>
+                                <option>Flappy</option>
+                                <option>Invaders</option>
+                                <option>Minesweeper</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label d-block">Platforma</label>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="platform" id="platPC" checked>
+                                <label class="form-check-label" for="platPC">PC</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="platform" id="platMobile">
+                                <label class="form-check-label" for="platMobile">Mobil</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="platform" id="platConsole">
+                                <label class="form-check-label" for="platConsole">Konzole</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label d-block">Zajmy</label>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="chkNewGames">
+                                <label class="form-check-label" for="chkNewGames">Turnaje</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="chkTournaments">
+                                <label class="form-check-label" for="chkTournaments">Streamy</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="chkNews">
+                                <label class="form-check-label" for="chkNews">Novinky</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputPlaytime" class="form-label">Jak casto hrajes?</label>
+                            <select id="inputPlaytime" class="form-select">
+                                <option>Kazdy den</option>
+                                <option>Nekolikrat tydne</option>
+                                <option>Obcas</option>
+                                <option>Prilezitostne</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputScore" class="form-label">High-score</label>
+                            <input id="inputScore" type="number" min="0" class="form-control" placeholder="napr. 12500">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="inputMessage" class="form-label">Zprava</label>
+                            <textarea id="inputMessage" class="form-control" rows="4" placeholder="Detaily, napady, poznamky"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="switchUpdates" checked>
+                                <label class="form-check-label" for="switchUpdates">Chci novinky.</label>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="chkConsent">
+                                <label class="form-check-label" for="chkConsent">Souhlas s ukazkovym zpracovanim.</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2 mt-3">
+                        <button type="submit" class="btn btn-arcade-primary">
+                            <i class="bi bi-send-fill me-1"></i>Odeslat
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="arcade-footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span class="small text-muted">&copy; <span id="yearSpan"></span> Pixelverse Arcade</span>
+
+        <div class="d-flex gap-2">
+            <a href="#top" class="btn btn-sm btn-arcade-outline">
+                <i class="bi bi-arrow-up-short"></i>Nahoru
+            </a>
+
+            <a href="#contact" class="btn btn-sm btn-arcade-primary">
+                <i class="bi bi-chat-dots me-1"></i>Kontakt
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- MODAL – o webu -->
+<div class="modal fade" id="aboutModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content pixel-modal">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">
+                    <i class="bi bi-info-circle me-1"></i>O webu
+                </h1>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <p>
+                    Pixelverse Arcade je ukazkovy neonovy one-page website inspirovany arcade automaty.
+                </p>
+
+                <ul class="pixel-list">
+                    <li>Hero + carousel</li>
+                    <li>Karty her</li>
+                    <li>Kategorie</li>
+                    <li>Zebricky</li>
+                    <li>Formular</li>
+                </ul>
+
+                <p class="mb-0">
+                    Vse lze rozsirit o backend, databazi nebo realne hratelne hry.
+                </p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-arcade-secondary" data-bs-dismiss="modal">Zavrit</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL – wireframe -->
+<div class="modal fade" id="wireframeModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content pixel-modal">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">
+                    <i class="bi bi-phone me-1"></i>Mobilni verze
+                </h1>
+            </div>
+
+            <div class="modal-body">
+                <p>Obsah na mobilu jde hezky za sebou.</p>
+
+                <ol class="pixel-list">
+                    <li>Navbar</li>
+                    <li>Hero</li>
+                    <li>Carousel</li>
+                    <li>O webu</li>
+                    <li>Karty her</li>
+                    <li>Kategorie</li>
+                    <li>Zebricky</li>
+                    <li>Formular</li>
+                    <li>Footer</li>
+                </ol>
+
+                <p class="mb-0">Jednoducha struktura, cista a prehledna.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-arcade-secondary" data-bs-dismiss="modal">Zavrit</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL – TETRIS -->
+<div class="modal fade" id="tetrisModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content pixel-modal">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">
+                    <i class="bi bi-bricks me-1"></i>Tetris – detail
+                </h1>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-art-wrapper mb-3">
+                    <div class="game-art art-tetris"></div>
+                </div>
+
+                <p>
+                    Tetris je logicka hra, kde skladas padajici bloky tak, aby tvořily plne radky.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL – SNAKE -->
+<div class="modal fade" id="snakeModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content pixel-modal">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">
+                    <i class="bi bi-lightning-charge me-1"></i>Snake – detail
+                </h1>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-art-wrapper mb-3">
+                    <div class="game-art art-snake"></div>
+                </div>
+
+                <p>
+                    Snake byl znamy z oldschool telefonu. Jez jidlo – rosteš. Narazis – konec.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL – FLAPPY -->
+<div class="modal fade" id="flappyModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content pixel-modal">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">
+                    <i class="bi bi-emoji-dizzy me-1"></i>Flappy Bird – detail
+                </h1>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-art-wrapper mb-3">
+                    <div class="game-art art-flappy"></div>
+                </div>
+
+                <p>
+                    Flappy Bird je hra o preciznim nacasovani. Jedno tlacitko, velky skill.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
