@@ -1,7 +1,7 @@
 // tady cekam az se nacte dokument, klasika jQuery
 $(document).ready(function () {
 
-    // jen doplnim aktualni rok do footeru
+    // doplnim aktualni rok do footeru
     var yearSpan = document.getElementById("yearSpan");
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
@@ -9,7 +9,6 @@ $(document).ready(function () {
 
     // -----------------------------------------
     // demo data pro score tabulky
-    // nic chytreho, proste rucne + par kopii
     // -----------------------------------------
 
     var scores = [
@@ -40,7 +39,7 @@ $(document).ready(function () {
     for (var i = 0; i < 45; i++) {
         var origin = baseCopy[i % baseCopy.length];
 
-        // male "rozhozeni" score at neni vse stejne
+        // male rozhozeni score at neni vse stejne
         var jitter = (Math.random() * 0.3 + 0.85); // 0.85 az 1.15
 
         var clone = {
@@ -84,7 +83,7 @@ $(document).ready(function () {
             else if (score >= 90) dots = 4;
         }
 
-        // ● a ○, nic vic, ale vypada to docela fajn
+        // ● nebo ○ - vypada to docela fajn, tka to tak necham
         var full = "●".repeat(dots);
         var empty = "○".repeat(5 - dots);
         return full + empty;
@@ -120,7 +119,7 @@ $(document).ready(function () {
             var diff = difficultyDots(entry.game, entry.score);
             var date = entry.date;
 
-            // tabulka "vsechny hry"
+            // tabulka vsech her
             allBody.append(
                 "<tr>" +
                 "<td>" + (rowAll++) + "</td>" +
@@ -210,7 +209,7 @@ $(document).ready(function () {
     // demo odeslani formulare – nechci reload stranky
     $(".pixel-form").on("submit", function (e) {
         e.preventDefault();
-        // tady by v realu byla ajax nebo fetch logika, ale ted jen alert
+        // tady by v realu byla ajax nebo fetch logika, ale ted necham jen alert
         alert("Diky za odeslani! Tohle je jen ukazkova stranka, takze se nic neposlalo na server.");
     });
 });
