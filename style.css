@@ -93,7 +93,7 @@ a:hover {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* logo font a spacing */
+/* logo font a dam pozor na spacing */
 .brand-text {
     font-family: "Press Start 2P";
     font-size: 0.8rem;
@@ -132,7 +132,7 @@ a:hover {
     color: var(--arcade-text);
 }
 
-/* hamburger button at je malinko videt ale neni to bila dira */
+/* hamburgeeer button */
 .navbar-toggler {
     border: 1px solid rgba(148, 163, 184, 0.6);
     border-radius: 10px;
@@ -141,7 +141,7 @@ a:hover {
     filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.7));
 }
 
-/* ===== hero sekce (uvod s textem a tlacitky) ===== */
+/* ===== hero sekce ===== */
 .hero-section {
     padding-top: 110px;
     padding-bottom: 70px;
@@ -341,7 +341,7 @@ a:hover {
     color: var(--arcade-muted);
 }
 
-/* ===== tlacitka – sjednoceny arcade styl, bez bilych pozadi ===== */
+/* ===== tlacitka ===== */
 .btn {
     border-radius: 999px;
     font-weight: 500;
@@ -351,14 +351,14 @@ a:hover {
     background-color: transparent;
 }
 
-/* focus stav tlacitka at je neon a ne modry bootstrap */
+/* focus tlacitka */
 .btn:focus,
 .btn:active:focus {
     box-shadow: 0 0 0 0.15rem rgba(58, 191, 255, 0.45);
     outline: none;
 }
 
-/* hlavni neon tlacitko (play / odeslat) */
+/* hlavni neon tlacitko (play a odeslat) */
 .btn-arcade-primary {
     background: linear-gradient(135deg, var(--arcade-neon-pink), var(--arcade-neon-blue));
     box-shadow:
@@ -372,7 +372,7 @@ a:hover {
     color: #02010b;
 }
 
-/* sekundarni tmave tlacitko (zavrit modal apod) */
+/* sekundarni tmave tlacitko (zavrit modal apod..) */
 .btn-arcade-secondary {
     background: rgba(7, 8, 22, 0.96);
     border: 1px solid rgba(148, 163, 184, 0.6);
@@ -440,7 +440,7 @@ a:hover {
     color: var(--arcade-muted-light);
 }
 
-/* ===== zakladni tabulky (mimo datatables logiku) ===== */
+/* ===== zakladni tabulky ===== */
 .table {
     color: var(--arcade-text);
     margin-bottom: 0;
